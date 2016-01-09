@@ -49,11 +49,13 @@ Start HTTP server instance
 http.createServer(function (req, res) {
   if(config.verbose) console.log(new Date().toString(),
       "HTTP Request from " + req.connection.remoteAddress);
+  // URL's for requesting directories or files must include the notes root
+  // directory. This is added if the URL is only the host address.
   // uri is the relative path used by serving functions
   var uri = url.parse(req.url).pathname;
-  if(uri == '') uri = '/';
+  if(uri == '' || uri == '/') uri = '/' + path.basename(config.notesPath);
   // filePath is the full system file path - for working with actual files
-  var filePath = path.join(config.notesPath, uri);
+  var filePath = path.join(path.dirname(config.notesPath), uri);
   if(config.verbose) console.log(new Date().toString(),
        "Info: Notes Path = " + filePath);
   fs.exists(filePath, function(exists) {
@@ -81,7 +83,6 @@ relative path where each directory is a link.
 function navHeading(uri) {
   var navHtml = '<h3>';
   var links = uri.split(path.sep);
-  navHtml = '<a href="/">' + path.basename(config.notesPath) + '</a>';
   var nextPath = '';
   for(var i = 0; i < links.length; i++) {
     if(links[i] != '') { // Check for trailing slash
@@ -101,7 +102,7 @@ Build an index page for any directory with a list of files and sub-
 directories it contains.
 *******************************************************************************/
 function ServeIndex(req, res, uri) {
-  var indexPath = path.join(config.notesPath, uri);
+  var indexPath = path.join(path.dirname(config.notesPath), uri);
   var indexHtml = stylesheet + metadata +
               '<html>\n' +
 	      '<body>\n' +
@@ -141,7 +142,7 @@ Use the 'marked' module to convert markdown files to HTML and return.
 function ServeMarkdown(req, res, uri)  {
   if(config.verbose) console.log(new Date().toString(),
        "Serving: " + uri);
-  var filePath = path.join(config.notesPath, uri);
+  var filePath = path.join(path.dirname(config.notesPath), uri);
   fs.exists(filePath, function(exists) {
     if(!exists) {
       if(config.verbose) console.log(new Date().toString(),
