@@ -1,0 +1,6 @@
+{
+  "verbose"   : false,
+  "httpPort"  : 8030,
+  "notesPath" : "/Users/someuser/notes", 
+  "cssPath"   : "darkstyle.css"
+}

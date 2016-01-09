@@ -1,0 +1,21 @@
+{
+  "name"         : "nerdnotes",
+  "version"      : "0.1.0",
+  "description"  : "Simple, markdown note rendering server.",
+  "license"      : "MIT",
+  "repository"   : {
+    "type"       : "git",
+    "url"        : "https://bitbucket.org/trpropst/nerdnotes"
+  },
+  "bugs"         : {
+    "url"        : "https://bitbucket.org/trpropst/nerdnotes/issues"
+  },
+  "keywords"     : [
+    "markdown",
+    "notes",
+    "git"
+  ],
+  "dependencies" : {
+    "marked"     : "0.x"
+  }
+}
