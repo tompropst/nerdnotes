@@ -1,0 +1,122 @@
+/*******************************************************************************
+Simple, solarized stylesheet based off of Ethan Schoonover's work at 
+http://ethanschoonover.com/solarized.
+This is the light color scheme.
+
+Color Reference:
+----------------
+base03    #002b36 - Dark Background
+base02    #073642 - Dark Background Highlights
+base01    #586e75 - Dark Comments / Secondary Content
+base00    #657b83 - Not Used (Light Body Text)
+base0     #839496 - Dark Body Text
+base1     #93a1a1 - Dark Optional Emphasized Text (Light Comments)
+base2     #eee8d5 - Not Used (Light Background Hightlights
+base3     #fdf6e3 - Not Used (Light Background)
+yellow    #b58900 - My Markdown Headings
+orange    #cb4b16 - My Markdown Emphasis
+red       #dc322f - My Markdown Strong
+magenta   #d33682 - Not Used
+violet    #6c71c4 - Not Used
+blue      #268bd2 - Not Used
+cyan      #2aa198 - Not Used
+green     #859900 - My Markdown Links
+*******************************************************************************/
+html,
+body {
+  /*font-family: "Lucida Console", Monaco, monospace;*/
+  font-family: Arial, Helvetica, sans-serif;
+  color: #839496;
+  background-color: #fdf6e3;
+}
+
+/********************************
+* Emphasis
+********************************/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #b58900;
+}
+
+h1 {
+  font-size: 175%;
+}
+
+a {
+  color: #859900;
+}
+
+em {
+  color: #cb4b16;
+}
+
+strong {
+  color: #dc322f;
+}
+
+code {
+  background-color: #eee8d5;
+  font-size: 120%;
+}
+
+pre code {
+  display: block;
+  padding: 0.5em 1em;
+  overflow: scroll;
+}
+
+/********************************
+* Tables
+********************************/
+table,
+table td {
+  border-collapse: collapse;
+  border: 1px solid #839496;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+table th {
+  border-collapse: collapse;
+  border: 1px solid #fdf6e3;
+  border-top: 0;
+  border-botom: 0;
+  text-align: center;
+  background-color: #839496;
+  color: #fdf6e3;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 100%;
+}
+
+table th:last-child {
+  border-right: 0;
+}
+
+table th:first-child {
+  border-left: 0;
+}
+
+table tr {
+  font-size: 90%;
+}
+
+table tr:nth-child(even) {
+  background-color: #eee8d5
+}
+
+/********************************
+* Lists
+********************************/
+ol ol {
+  list-style-type: lower-alpha;
+}
+
+ol ol ol {
+  list-style-type: lower-roman;
+}
+
